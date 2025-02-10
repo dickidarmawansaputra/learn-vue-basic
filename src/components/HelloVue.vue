@@ -10,11 +10,18 @@ const data = {
     id: "hello",
     class: "hello",
 }
+
+function hi() {
+    return "Hi World!";
+}
 </script>
 
 <template>
 <!-- dalam bentuk html escape, jika menggunakan mustache. jadi harus diperhatikan -->
-<h1 class="hello">{{ hello }}</h1>
+<h1 class="hello">{{ hello.toUpperCase() }}</h1>
+
+<h2>{{ 100 * 5 }}</h2>
+<h2>{{ hi() }}</h2>
 
 <!-- jika ingin raw html, bisa menggunakan directive v-html -->
 <div v-html="hello"></div>
