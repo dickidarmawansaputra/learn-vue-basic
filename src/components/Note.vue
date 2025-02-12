@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref, useTemplateRef } from 'vue';
+import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, reactive, ref, useTemplateRef } from 'vue';
 
 const notes = reactive([]);
 const note = ref("");
@@ -20,6 +20,22 @@ function addNote() {
         });
     }
 }
+
+onBeforeMount(() => {
+    console.info("onBeforeMount");
+});
+
+onMounted(() => {
+    console.info("onMounted");
+});
+
+onBeforeUpdate(() => {
+    console.info("onBeforeUpdate");
+});
+
+onUpdated(() => {
+    console.info("onUpdated");
+});
 </script>
 <template>
     <h1>Create Note</h1>
@@ -30,7 +46,7 @@ function addNote() {
 
     <h1>List Note</h1>
     <ul>
-        // useTemplateRef dalam v-for
+        <!-- useTemplateRef dalam v-for -->
         <li v-for="note in notes" ref="noteList">{{ note }}</li>
     </ul>
 </template>
