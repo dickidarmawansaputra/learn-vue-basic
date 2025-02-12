@@ -32,7 +32,7 @@ const contact = reactive({
         </div>
         <div>
             <label for="type">Type
-                <select name="type" id="type" v-model="contact.type">
+                <select id="type" v-model="contact.type">
                     <option value="Regular">Regular</option>
                     <option value="VIP">VIP</option>
                 </select>
