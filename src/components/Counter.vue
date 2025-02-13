@@ -1,6 +1,9 @@
 <script setup>
 import { nextTick, ref } from 'vue';
 
+// cara panggilnya cek di file MultipleCounter.vue
+const props = defineProps(["name", "initialCount"]);
+
 console.info("load component")
 // using reactive state
 let count = ref(0);
@@ -15,7 +18,9 @@ function increment() {
 
 // ref bisa nerima semua tipe data
 let countObject = ref({
-    count: 0,
+    // sebelum gunakan props, yg dibawah untuk mencoba component props
+    // count: 0,
+    count: Number(props.initialCount),
     name: "Dicki",
 });
 
@@ -43,9 +48,11 @@ async function incrementObjectWithAsync() {
     <div>
         <h1>Counter: {{ count }}</h1>
         <h1>Counter Object: {{ countObject.count }}</h1>
+        <h1>Counter Props {{ props.name }} : {{ countObject.count }}</h1>
         <button v-on:click="increment">Increment</button>
         <button v-on:click="incrementObject">Increment Object</button>
         <button v-on:click="incrementObjectWithAsync">Increment Object With Async</button>
+
     </div>
 </template>
 
