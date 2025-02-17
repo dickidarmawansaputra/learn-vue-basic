@@ -6,7 +6,7 @@ const {title} = defineProps({
 });
 
 // conditional slots
-const slots = useSlots();
+const slots = useSlots(); // sebenarnya tidak perlu pake useSlots(), bisa langsung akses property yang ada di component instance
 
 const counter = ref(0);
 </script>
@@ -25,7 +25,8 @@ const counter = ref(0);
                 <p>Header slot</p>
             </slot>
         </div>
-        <div v-if="slots.content">
+        <!-- akses property slots dari component instance, pake tanda $ -->
+        <div v-if="$slots.content">
             <slot name="content">
                 <p>Content slot</p>
             </slot>

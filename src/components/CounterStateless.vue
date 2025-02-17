@@ -23,6 +23,7 @@ function buttonClick() {
         <h1>Counter {{ name }} : {{ counter }}</h1>
         <button @click="emits('click', increment)">Increment {{ name }}</button>
         <button @click="buttonClick">Increment {{ name }} With Func</button>
+        <button @click="$emit('click', increment)">Increment {{ name }} With Component Instance</button>
     </div>
 </template>
 <style scoped>
